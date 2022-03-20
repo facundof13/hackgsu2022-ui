@@ -37,6 +37,12 @@ const Navbar: FC<NavbarProps> = () => {
         </div>
 
         <div className="gap-4 justify-self-end items-end text-sm hidden sm:flex">
+          <Link
+            to="/"
+            className=" underline underline-offset-2 hover:underline-offset-4"
+          >
+            Home
+          </Link>
           {auth.authed ? (
             <React.Fragment>
               {/* <Link
@@ -72,6 +78,9 @@ const Navbar: FC<NavbarProps> = () => {
           className="absolute bg-slate-400 w-full text-black flex flex-col cursor-pointer shadow-md"
           onClick={() => setShowNavigation(false)}
         >
+          <Link to="/">
+            <div className="p-2 hover:bg-slate-500">Home</div>
+          </Link>
           {auth.authed ? (
             <>
               {/* <Link to="/favorites">
