@@ -25,7 +25,10 @@ const Languages: FC<LanguagesProps> = ({
 
   async function getLanguages() {
     try {
-      const apiLanguages = await (await fetch(API.LANGUAGES)).json();
+      console.log(process.env);
+      const apiLanguages = await (
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.LANGUAGES}`)
+      ).json();
       setLanguages(apiLanguages);
     } catch (err) {
       setLanguages([]);

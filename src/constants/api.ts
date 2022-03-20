@@ -6,4 +6,6 @@ export const API = {
     'COMMENTS': '/api/comments',
     'FAVORITE': '/api/favorite',
     'USER_FAVORITE': '/api/user-favorite',
+    'USER_LOGIN': '/user/login',
+    'USER_REGISTER': '/user/register',
 };

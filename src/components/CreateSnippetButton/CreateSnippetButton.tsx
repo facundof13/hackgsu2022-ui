@@ -44,7 +44,7 @@ const CreateSnippetButton: FC<CreateSnippetButtonProps> = () => {
       };
 
       const response = await (
-        await fetch(API.SNIPPETS, {
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.SNIPPETS}`, {
           method: "POST",
           headers: { "Content-Type": "application/json", ...auth.headers() },
           body: JSON.stringify(data),
@@ -60,7 +60,9 @@ const CreateSnippetButton: FC<CreateSnippetButtonProps> = () => {
 
   async function getLanguages() {
     try {
-      const response = await (await fetch(API.LANGUAGES)).json();
+      const response = await (
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.LANGUAGES}`)
+      ).json();
 
       setLanguages(
         response
@@ -72,7 +74,9 @@ const CreateSnippetButton: FC<CreateSnippetButtonProps> = () => {
 
   async function getFrameworks() {
     try {
-      const response = await (await fetch(API.FRAMEWORKS)).json();
+      const response = await (
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.FRAMEWORKS}`)
+      ).json();
 
       setFrameworks([...response]);
     } catch (err) {}

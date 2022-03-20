@@ -3,6 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { API } from "constants/api";
 
 interface LoginProps {
   isRegister?: boolean;
@@ -24,7 +25,7 @@ const Login: FC<LoginProps> = ({ isRegister }) => {
 
     try {
       const res = await (
-        await fetch("/user/login", {
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.USER_LOGIN}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
@@ -59,7 +60,7 @@ const Login: FC<LoginProps> = ({ isRegister }) => {
 
     try {
       const res = await (
-        await fetch("/user/register", {
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.USER_REGISTER}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),

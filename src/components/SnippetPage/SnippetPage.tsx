@@ -27,7 +27,7 @@ const SnippetPage: FC<SnippetPageProps> = ({ snippet }) => {
 
   async function getComments() {
     const apiComments = await (
-      await fetch(`${API.COMMENTS}/${snippet.id}`)
+      await fetch(`${process.env.REACT_APP_DOMAIN}${API.COMMENTS}/${snippet.id}`)
     ).json();
 
     setComments(apiComments);
@@ -40,7 +40,7 @@ const SnippetPage: FC<SnippetPageProps> = ({ snippet }) => {
     };
 
     try {
-      const success = await fetch(`${API.COMMENTS}`, {
+      const success = await fetch(`${process.env.REACT_APP_DOMAIN}${API.COMMENTS}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...auth.headers() },
         body: JSON.stringify(body),

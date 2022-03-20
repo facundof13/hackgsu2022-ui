@@ -13,7 +13,7 @@ const Favorites: FC<FavoritesProps> = () => {
 
   async function getFavorites() {
     const response = await (
-      await fetch(API.USER_FAVORITE, {
+      await fetch(`${process.env.REACT_APP_DOMAIN}${API.USER_FAVORITE}`, {
         headers: auth.headers(),
       })
     ).json();

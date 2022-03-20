@@ -28,7 +28,7 @@ const LanguagePage: FC<LanguagePageProps> = ({
     try {
       if (language) {
         const apiSnippets = await (
-          await fetch(`${API.SNIPPETS}/${language.id}`)
+          await fetch(`${process.env.REACT_APP_DOMAIN}${API.SNIPPETS}/${language.id}`)
         ).json();
 
         setSnippets([...apiSnippets]);
@@ -42,7 +42,7 @@ const LanguagePage: FC<LanguagePageProps> = ({
 
   async function getPopularSnippets() {
     try {
-      const apiSnippets = await (await fetch(`${API.SNIPPETS}`)).json();
+      const apiSnippets = await (await fetch(`${process.env.REACT_APP_DOMAIN}${API.SNIPPETS}`)).json();
 
       setSnippets([...apiSnippets]);
     } catch (err) {

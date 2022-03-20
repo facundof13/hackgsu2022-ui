@@ -20,7 +20,7 @@ const FavoriteButton: FC<FavoriteButtonProps> = ({ snippet }) => {
   async function getFavorite() {
     try {
       const response = await (
-        await fetch(`${API.FAVORITE}/${snippet.id}`, {
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.FAVORITE}/${snippet.id}`, {
           headers: auth.headers(),
         })
       ).json();
@@ -28,7 +28,7 @@ const FavoriteButton: FC<FavoriteButtonProps> = ({ snippet }) => {
 
       if (auth.authed) {
         const apiIsFavorite = await (
-          await fetch(`${API.USER_FAVORITE}/${snippet.id}`, {
+          await fetch(`${process.env.REACT_APP_DOMAIN}${API.USER_FAVORITE}/${snippet.id}`, {
             headers: auth.headers(),
           })
         ).json();
@@ -43,7 +43,7 @@ const FavoriteButton: FC<FavoriteButtonProps> = ({ snippet }) => {
   async function toggleFavorite() {
     try {
       const response = await (
-        await fetch(`${API.FAVORITE}/${snippet.id}`, {
+        await fetch(`${process.env.REACT_APP_DOMAIN}${API.FAVORITE}/${snippet.id}`, {
           method: "POST",
           headers: { "Content-Type": "application/json", ...auth.headers() },
         })
