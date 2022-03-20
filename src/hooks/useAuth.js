@@ -20,6 +20,13 @@ function useAuth() {
             localStorage.removeItem('token');
             setAuthed(false);
         },
+        headers() {
+            const token = localStorage.getItem('token');
+
+            if (token && token !== 'null') {
+                return { Authorization: `JWT ${token}` };
+            }
+        }
     };
 }
 

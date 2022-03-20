@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import useAuth, { AuthProvider } from "./hooks/useAuth";
 import AppRoutes from "./components/AppRoutes/AppRoutes";
+import Footer from "components/Footer/Footer";
 
 function App() {
   const auth = useAuth();
@@ -13,6 +14,7 @@ function App() {
         <ToastContainer />
         <Navbar />
         <AppRoutes />
+        <Footer />
       </div>
     </AuthProvider>
   );

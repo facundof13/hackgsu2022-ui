@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  FormEvent,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { FC, FormEvent, useRef } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -50,6 +43,7 @@ const Login: FC<LoginProps> = ({ isRegister }) => {
 
       (username.current as any).value = "";
       (password.current as any).value = "";
+      return;
     } catch (err) {
       toast.error("There was an error when attempting to login.");
     }
@@ -127,13 +121,13 @@ const Login: FC<LoginProps> = ({ isRegister }) => {
           </div>
           <button
             type="submit"
-            className="bg-white p-2 rounded-md border-black border-2 mt-4 sm:mb-3"
+            className="bg-gray-100 p-2 rounded-md border-black border-2 mt-4 sm:mb-3 hover:bg-gray-200"
           >
             {isRegister ? "Register" : "Login"}
           </button>
           <div className="sm:mt-auto sm:mb-2 mt-5">
             <Link
-              className="text-sm text-neutral-500 underline-offset-2 underline"
+              className="text-sm underline-offset-2 underline hover:underline-offset-4"
               to={isRegister ? "/login" : "/register"}
             >
               {isRegister ? "Back to Login" : "Or click here to register"}
